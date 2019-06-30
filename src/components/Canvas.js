@@ -21,15 +21,17 @@ class Canvas extends Component {
     this.mouseup = this.mouseup.bind(this);
     this.mouseleave = this.mouseleave.bind(this);
     this.draw = this.draw.bind(this);
+    this.canvas = this.canvas.bind(this);
+    this.ctx = this.ctx.bind(this);
   }
 
   componentDidMount() {
-    const canvas = this.refs.canvas;
-    const ctx = canvas.getContext("2d");
+    this.canvas().width = window.innerWidth;
+    this.canvas().height = window.innerHeight;
   }
 
   canvas() {
-    return document.querySelector("canvas");
+    return document.querySelector("#container-canvas");
   }
 
   ctx() {
@@ -37,40 +39,49 @@ class Canvas extends Component {
   }
 
   mousedown(e) {
-    console.log("mousedown");
     this.setState({mousePressed: true });
-    console.log("e.pageX = " + e.pageX + ", canvas.offsetLeft =" + this.canvas().offsetLeft);
-    console.log("e.pageY = " + e.pageY + ", canvas.offsetTop =" + this.canvas().offsetTop);
+    this.draw(e.pageX-this.canvas().offsetLeft, e.pageY-this.canvas().offsetTop, false, this.state.colour);
   }
 
   mousemove(e) {
-    console.log("mousemove");
+    if (this.state.mousePressed) {
+    this.draw(e.pageX - this.canvas().offsetLeft, e.pageY - this.canvas().offsetTop, true, this.state.colour);
+}
   }
 
   mouseup(e) {
-    console.log("mouseup");
     this.setState({mousePressed: false });
   }
 
   mouseleave(e) {
-    console.log("mouseleave");
   }
 
-  draw() {
-
+  draw(x, y, isDown, colour) {
+    if (isDown) {
+        this.ctx().beginPath();
+        this.ctx().strokeStyle = colour;
+        this.ctx().lineWidth = 1;
+        this.ctx().moveTo(this.state.lastX, this.state.lastY);
+        this.ctx().lineTo(x, y);
+        this.ctx().closePath();
+        this.ctx().stroke();
+    }
+    this.setState({
+        lastX: x,
+        lastY: y
+    })
   }
 
   render() {
     return(
-      <div>
-        <canvas ref="canvas"
+      <div className="">
+        <canvas id="container-canvas" ref="canvas"
           onMouseDown={this.mousedown}
           onMouseMove={this.mousemove}
           onMouseUp={this.mouseup}
           onMouseLeave={this.mouseleave} />
       </div>
     )
-
   }
 
 }
