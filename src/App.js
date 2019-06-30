@@ -8,9 +8,9 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-      colour:"black"
+      colour:"black",
+      totalClick: 0
     })
-
   }
 
   changePenColour = (colour) => {
@@ -18,6 +18,14 @@ export default class App extends React.Component {
       colour: colour
     })
   }
+
+  clickCounting = () => {
+    this.setState({
+      totalClick: this.state.totalClick + 1
+    })
+    console.log(this.state.totalClick);
+  }
+
 
   render() {
     return (
@@ -28,6 +36,7 @@ export default class App extends React.Component {
             <ColourPicker changePenColour={this.changePenColour} colour="blue"/>
             <ColourPicker changePenColour={this.changePenColour} colour="red"/>
             <ColourPicker changePenColour={this.changePenColour} colour="yellow"/>
+            <h2 className="totalclick">Total Click: {this.state.totalClick}</h2>
           </div>
         </div>
         <Canvas colour={this.state.colour} />

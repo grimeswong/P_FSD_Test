@@ -41,6 +41,10 @@ class Canvas extends Component {
   mousedown(e) {
     this.setState({mousePressed: true });
     this.draw(e.pageX-this.canvas().offsetLeft, e.pageY-this.canvas().offsetTop, false, this.state.colour);
+    this.setState({
+      totalClick: this.state.totalClick + 1
+    })
+    console.log("Total Clicked " + this.state.totalClick);
   }
 
   mousemove(e) {

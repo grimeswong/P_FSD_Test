@@ -1,13 +1,15 @@
 @import './colour-variables.scss';
 
 .colourpicker-wrapper {
-  display: flex;
+  display: inline-block;
   margin-left: 10%;
   height: 100%;
+  & >div{
+    display: inline-block;
+  }
 }
 
 .container-colourpicker {
-  display: inline-block;
   width: 50px;
   height: 50px;
   margin: 25px;
