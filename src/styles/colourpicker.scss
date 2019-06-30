@@ -1,3 +1,5 @@
+@import './colour-variables.scss';
+
 .colourpicker-wrapper {
   float: left;
   margin-left: 10%;
@@ -11,11 +13,11 @@
   height: 50px;
   margin: 25px;
   border-radius: 10px;
-  box-shadow: 2px 4px 2px #888888;
+  box-shadow: 2px 4px 2px $container-colourpicker-boxshadow-colour;
 
   &:hover{
     opacity: 0.5;
     cursor: pointer;
-    box-shadow: 5px 10px 8px #888888;
+    box-shadow: 5px 10px 8px $container-colourpicker-boxshadow-colour;
   }
 }
