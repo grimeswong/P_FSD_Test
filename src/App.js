@@ -23,7 +23,6 @@ export default class App extends React.Component {
     this.setState({
       totalClick: this.state.totalClick + 1
     })
-    console.log(this.state.totalClick);
   }
 
 
@@ -39,7 +38,7 @@ export default class App extends React.Component {
             <h2 className="totalclick">Total Click: {this.state.totalClick}</h2>
           </div>
         </div>
-        <Canvas colour={this.state.colour} />
+        <Canvas colour={this.state.colour} clickCounting={this.clickCounting.bind(this)} />
       </div>
     );
   }

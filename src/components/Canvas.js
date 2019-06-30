@@ -44,7 +44,6 @@ class Canvas extends Component {
     this.setState({
       totalClick: this.state.totalClick + 1
     })
-    console.log("Total Clicked " + this.state.totalClick);
   }
 
   mousemove(e) {
@@ -86,7 +85,7 @@ class Canvas extends Component {
   render() {
     return(
       <div className="">
-        <canvas id="container-canvas" ref="canvas"
+        <canvas id="container-canvas" ref="canvas" onClick={this.props.clickCounting}
           onMouseDown={this.mousedown}
           onMouseMove={this.mousemove}
           onMouseUp={this.mouseup}
