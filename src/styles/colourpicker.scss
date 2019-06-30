@@ -1,9 +1,8 @@
 @import './colour-variables.scss';
 
 .colourpicker-wrapper {
-  float: left;
+  display: flex;
   margin-left: 10%;
-  display: inline;
   height: 100%;
 }
 
