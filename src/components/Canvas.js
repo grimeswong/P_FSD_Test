@@ -10,7 +10,7 @@ class Canvas extends Component {
     super(props);
     this.state = {
       mousePressed: false,
-      colour: "#000000",
+      colour: props.colour,
       lastX: 0,
       lastY: 0,
       totalClick: 0,

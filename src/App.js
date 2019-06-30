@@ -3,20 +3,35 @@ import './App.scss';
 import ColourPicker from './components/ColourPicker';
 import Canvas from './components/Canvas';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="container-topbar">
-        <div className="colourpicker-wrapper">
-          <ColourPicker colour="black"/>
-          <ColourPicker colour="blue"/>
-          <ColourPicker colour="red"/>
-          <ColourPicker colour="yellow"/>
-        </div>
-      </div>
-      <Canvas />
-    </div>
-  );
-}
+export default class App extends React.Component {
 
-export default App;
+  constructor(props) {
+    super(props);
+    this.state = ({
+      colour:"black"
+    })
+  }
+
+  changePenColour = (colour) => {
+    this.setState({
+      colour: colour
+    })
+    console.log(this.state.colour);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container-topbar">
+          <div className="colourpicker-wrapper">
+            <ColourPicker changePenColour={this.changePenColour} colour="black"/>
+            <ColourPicker changePenColour={this.changePenColour} colour="blue"/>
+            <ColourPicker changePenColour={this.changePenColour} colour="red"/>
+            <ColourPicker changePenColour={this.changePenColour} colour="yellow"/>
+          </div>
+        </div>
+        <Canvas />
+      </div>
+    );
+  }
+}
