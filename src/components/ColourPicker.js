@@ -18,6 +18,7 @@ class ColourPicker extends Component {
   changeColour(e) {
     console.log("Change Colour button is clicked");
     console.log(e.target.value);
+    
   }
 
   render() {

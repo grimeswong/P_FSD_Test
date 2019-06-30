@@ -1,12 +1,19 @@
 import React from 'react';
 import './App.scss';
-import TopBar from './components/TopBar';
+import ColourPicker from './components/ColourPicker';
 import Canvas from './components/Canvas';
 
 function App() {
   return (
     <div className="App">
-      <TopBar />
+      <div className="container-topbar">
+        <div className="colourpicker-wrapper">
+          <ColourPicker colour="black"/>
+          <ColourPicker colour="blue"/>
+          <ColourPicker colour="red"/>
+          <ColourPicker colour="yellow"/>
+        </div>
+      </div>
       <Canvas />
     </div>
   );
