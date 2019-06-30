@@ -8,11 +8,16 @@ class Canvas extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      colour: "#000000"
+    }
   }
 
   render() {
     return(
-      <h1>testing Canvas</h1>
+      <div className="container-canvas">
+
+      </div>
     )
 
   }
