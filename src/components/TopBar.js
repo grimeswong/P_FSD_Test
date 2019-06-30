@@ -8,9 +8,12 @@ import ColourPicker from './ColourPicker';
 const TopBar = () => {
   return (
     <div className="container-topbar">
-      <ColourPicker colour="black"/>
-      <ColourPicker colour="blue"/>
-      <ColourPicker colour="red"/>
+      <div className="colourpicker-wrapper">
+        <ColourPicker colour="black"/>
+        <ColourPicker colour="blue"/>
+        <ColourPicker colour="red"/>
+        <ColourPicker colour="yellow"/>
+      </div>
     </div>
   );
 
