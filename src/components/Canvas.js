@@ -45,8 +45,8 @@ class Canvas extends Component {
 
   mousemove(e) {
     if (this.state.mousePressed) {
-    this.draw(e.pageX - this.canvas().offsetLeft, e.pageY - this.canvas().offsetTop, true, this.state.colour);
-}
+      this.draw(e.pageX - this.canvas().offsetLeft, e.pageY - this.canvas().offsetTop, true, this.state.colour);
+    }
   }
 
   mouseup(e) {
@@ -54,6 +54,7 @@ class Canvas extends Component {
   }
 
   mouseleave(e) {
+    this.setState({mousePressed: false });
   }
 
   draw(x, y, isDown, colour) {
