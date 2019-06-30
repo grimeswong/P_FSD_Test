@@ -73,6 +73,12 @@ class Canvas extends Component {
     })
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      colour: props.colour
+    })
+  }
+
   render() {
     return(
       <div className="">

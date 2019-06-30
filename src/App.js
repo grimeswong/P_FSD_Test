@@ -10,13 +10,13 @@ export default class App extends React.Component {
     this.state = ({
       colour:"black"
     })
+
   }
 
   changePenColour = (colour) => {
     this.setState({
       colour: colour
     })
-    console.log(this.state.colour);
   }
 
   render() {
@@ -30,7 +30,7 @@ export default class App extends React.Component {
             <ColourPicker changePenColour={this.changePenColour} colour="yellow"/>
           </div>
         </div>
-        <Canvas />
+        <Canvas colour={this.state.colour} />
       </div>
     );
   }
